@@ -1,5 +1,3 @@
-require 'pry'
-
 class Person
 
   attr_accessor :name, :x, :y
@@ -32,7 +30,7 @@ class Person
   def zombified?(zombies)
     zombies.each do |zombie|
       if zombie.x.between?((@x - 1), (@x + 1)) && zombie.y.between?((@y - 1), (@y + 1))
-        puts "#{zombie.name} ha convertido a #{@name} en zombie!!!"
+        puts "El nuevo zombie #{zombie.name} ha convertido a #{@name} en zombie!!!"
       end
     end
   end
