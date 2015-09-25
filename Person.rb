@@ -4,13 +4,17 @@ class Person
 
   def initialize(name = nil, posx = nil, posy = nil)
     @name = name || 'John Doe'
-    @x = posx || Random.rand(10)
-    @y = posy || Random.rand(10)
+    @x = posx || rand(1..20)
+    @y = posy || rand(1..20)
   end
 
   def run!
-    @x += Random.rand(-2..2)
-    @y += Random.rand(-2..2)
+    @x += rand(-1..1) unless (@x >20 || @x <= 0)
+    @y += rand(-1..1) unless (@y >20 || @y <= 0)
+  end
+
+  def scream
+    puts 'AAHHHH!!!'
   end
 
   def to_s

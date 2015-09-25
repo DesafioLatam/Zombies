@@ -3,17 +3,28 @@ class Zombie
 
   def initialize(name = nil, posx = nil, posy = nil)
     @name = name || 'Come cerebro'
-    @x = posx || Random.rand(10)
-    @y = posy || Random.rand(10)
+    @x = posx || rand(1..20)
+    @y = posy || rand(1..20)
   end
 
   def walk
-    @x += Random.rand(-1..1)
-    @y += Random.rand(-1..1)
+    @x += rand(-1..1) unless (@x >20 || @x < 1)
+    @y += rand(-1..1) unless (@y >20 || @y < 1)
+  end
+
+  def talk
+    puts 'BRAINNNSSS!!!'
   end
 
   def to_s
-    'Brainnnssss!!!!'
+    puts "El zombie #{@name} esta en la posicion #{@x}, #{@y}"
   end
 
 end
+
+pato = Zombie.new
+
+puts pato
+pato.talk
+pato.walk
+puts pato
