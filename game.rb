@@ -1,7 +1,6 @@
 require_relative 'Person.rb'
 require_relative 'Zombie.rb'
 
-
 personas = []
 
 10.times do |n|
