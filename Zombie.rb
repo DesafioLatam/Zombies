@@ -3,17 +3,17 @@ class Zombie
 
   def initialize(name = nil, posx = nil, posy = nil)
     @name = name || 'Come cerebro'
-    @x = posx || rand(1..20)
-    @y = posy || rand(1..20)
+    @x = posx || rand(1..10)
+    @y = posy || rand(1..10)
   end
 
   def walk
-    @x += rand(-1..1) unless (@x >20 || @x < 1)
-    @y += rand(-1..1) unless (@y >20 || @y < 1)
+    @x += rand(-1..1) unless (@x >10 || @x < 1)
+    @y += rand(-1..1) unless (@y >10 || @y < 1)
   end
 
   def talk
-    puts 'BRAINNNSSS!!!'
+    'BRAAAIIIINNN!!!'
   end
 
   def to_s

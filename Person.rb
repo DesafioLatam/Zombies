@@ -4,17 +4,18 @@ class Person
 
   def initialize(name = nil, posx = nil, posy = nil)
     @name = name || 'John Doe'
-    @x = posx || rand(1..20)
-    @y = posy || rand(1..20)
+    @x = posx || rand(1..10)
+    @y = posy || rand(1..10)
+    @dead = false
   end
 
   def run!
-    @x += rand(-1..1) unless (@x >20 || @x <= 0)
-    @y += rand(-1..1) unless (@y >20 || @y <= 0)
+    @x += rand(-1..1) unless (@x >10 || @x <= 0)
+    @y += rand(-1..1) unless (@y >10 || @y <= 0)
   end
 
   def scream
-    puts 'AAHHHH!!!'
+    'AAAHHHH!!!'
   end
 
   def to_s
@@ -24,19 +25,21 @@ class Person
   def danger?(zombies)
     zombies.each do |zombie|
       if zombie.x.between?((@x - 3), (@x + 3)) && zombie.y.between?((@y - 3), (@y + 3))
-        puts "Danger, danger #{@name} el zombie #{zombie.name} esta cerca!!! #{zombie}"
-      else
-        puts "Hey #{@name}, todo esta tranquilo por aqui"
+        puts "Danger, danger #{@name} el zombie #{zombie.name} esta cerca!!!"
+        return true
       end
+      puts "Hey #{@name}, todo esta tranquilo por aqui"
     end
   end
 
-  def zombified?(zombies)
+  def dead?(zombies)
     zombies.each do |zombie|
       if zombie.x.between?((@x - 1), (@x + 1)) && zombie.y.between?((@y - 1), (@y + 1))
-        puts "El nuevo zombie #{zombie.name} ha convertido a #{@name} en zombie!!!"
+        puts "#{@name}: #{scream}, #{zombie.name}: #{zombie.talk}"
+        return true
       end
     end
+    false
   end
 
 end

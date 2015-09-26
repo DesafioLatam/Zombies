@@ -19,13 +19,14 @@ puts zombies.count
 while personas.count > 0
   zombies.each(&:walk)
   personas.each(&:run!)
-  personas.each do |p|
-    p.danger? zombies
-    if p.zombified? zombies
-      muerto = personas.delete(p)
-      zombies << Zombie.new("#{muerto.name}")
+  personas.each_with_index do |persona, index|
+    persona.danger? zombies
+    if persona.dead? zombies
+      zombies << Zombie.new("#{persona.name}")
+      personas[index] = nil
     end
   end
+  personas.compact!
 end
 
 puts personas.count
