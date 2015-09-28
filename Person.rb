@@ -1,10 +1,10 @@
 class Person < Entity
   attr_accessor :name, :x, :y
-
-  def initialize(name = nil, posx = nil, posy = nil)
+  
+  def initialize(name = nil, x = nil, y = nil)
+    super
     @name = name || 'John Doe'
-    @x = posx || rand(1..10)
-    @y = posy || rand(1..10)
+    @type = 'Person'
     @dead = false
   end
 
