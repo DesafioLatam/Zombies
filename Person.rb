@@ -9,16 +9,12 @@ class Person < Entity
   end
 
   def run!
-    @x += rand(-1..1) unless (@x >10 || @x <= 0)
-    @y += rand(-1..1) unless (@y >10 || @y <= 0)
+    @x += rand(-1..1) unless @x > 10 || @x <= 0
+    @y += rand(-1..1) unless @y > 10 || @y <= 0
   end
 
   def scream
     'AAAHHHH!!!'
-  end
-
-  def to_s
-    "#{@name} esta en la posicion #{@x}, #{@y}"
   end
 
   def danger?(zombies)
