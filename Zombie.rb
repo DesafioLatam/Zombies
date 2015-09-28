@@ -21,10 +21,3 @@ class Zombie
   end
 
 end
-
-pato = Zombie.new
-
-puts pato
-pato.talk
-pato.walk
-puts pato

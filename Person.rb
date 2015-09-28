@@ -26,7 +26,6 @@ class Person
     zombies.each do |zombie|
       if zombie.x.between?((@x - 3), (@x + 3)) && zombie.y.between?((@y - 3), (@y + 3))
         puts "Danger, danger #{@name} el zombie #{zombie.name} esta cerca!!!"
-        return true
       end
       puts "Hey #{@name}, todo esta tranquilo por aqui"
     end
