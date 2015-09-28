@@ -1,5 +1,4 @@
-class Person
-
+class Person < Entity
   attr_accessor :name, :x, :y
 
   def initialize(name = nil, posx = nil, posy = nil)
